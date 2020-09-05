@@ -80,8 +80,12 @@ def imageOverlayText(imageText, imgObject):
         
 def imagePrintAttribute(imgObject, exifTag):
     try:
-        imgDateTime = datetime.strptime(exifTag['DateTime'],exifTagDateTimeFormat)
-        imgTxt = imgDateTime.strftime("%Y%b%d")
+        imgDateTime = exifTag.get('DateTime', None)
+        if imgDateTime != None:
+            imgDateTime = datetime.strptime(exifTag['DateTime'],exifTagDateTimeFormat)
+            imgTxt = imgDateTime.strftime("%Y%b%d")
+        else:
+            imgTxt = ""
         return (imageOverlayText(imgTxt,imgObject))
     except Exception as e:
         print( inspect.stack()[0][3] + " Exception: " + str(e))
@@ -99,6 +103,8 @@ def imageResize(imgObject, newWidth):
         
 def imageSave(imgObject,filename):
     try:
+        if imgObject.mode in ("RGBA", "P"):
+            imgObject = imgObject.convert("RGB")
         imgObject.save(filename)
         return True
     except Exception as e:
