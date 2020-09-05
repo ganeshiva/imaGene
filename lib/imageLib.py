@@ -20,6 +20,7 @@ def calcDimensions(width, height, newWidth):
     return (newWidth,newHeight)
 
 def imageOpen(fileName):
+    #print(fileName)
     try:
         imgOject=Image.open(fileName)
         #imgOject.verify()
@@ -32,6 +33,8 @@ def imageExif(imgOject):
     try:
         exifDict = imgOject._getexif() 
         exifTags = {}
+        if exifDict == None:
+            return None
         for (key, val) in exifDict.items():
             exifTags[TAGS.get(key)] = val
         return exifTags   
