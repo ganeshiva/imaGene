@@ -1,8 +1,8 @@
 
 scriptCode="src/main.py"
-srcDir="C:\\Windows\\Web"
-dstDir="C:\\Users\\ganeshs\\Desktop\\newDir"
-newWidth=480
+srcDir="C:\\srcDir\\"
+dstDir="C:\\newDir\\"
+newWidth=1024
 printDate=True
 printLocation=True
 

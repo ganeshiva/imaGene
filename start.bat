@@ -1,8 +1,8 @@
 
 set scriptCode="src\main.py"
-set srcDir="C:\\Windows\\Web"
-set dstDir="C:\\Users\\ganeshs\\Desktop\\newDir"
-set newWidth=480
+set srcDir="C:\\srcDir\\"
+set dstDir="C:\\dstDir\\"
+set newWidth=1024
 set printDate=True
 set printLocation=True
 
